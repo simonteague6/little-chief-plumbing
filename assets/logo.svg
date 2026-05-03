@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Little Chief Plumbing logo -->
+  <circle cx="50" cy="50" r="48" fill="#1B2A4A" />
+  <!-- Water drop -->
+  <path d="M50 20 C35 38 32 48 32 55 C32 65 40 72 50 72 C60 72 68 65 68 55 C68 48 65 38 50 20Z" fill="#E87722" opacity="0.9"/>
+  <!-- Wrench handle -->
+  <rect x="47" y="45" width="6" height="30" rx="3" fill="#FFFFFF"/>
+  <!-- Wrench head -->
+  <path d="M38 40 L62 40 L64 36 L60 30 L56 30 L52 36 L48 36 L44 30 L40 30 L36 36Z" fill="#FFFFFF"/>
+  <circle cx="50" cy="40" r="4" fill="#1B2A4A"/>
+  <!-- Chief feather details -->
+  <path d="M48 16 L50 8 L52 16" fill="#FFB347" opacity="0.8"/>
+  <path d="M44 18 L50 6 L46 20" fill="#E87722" opacity="0.6"/>
+  <path d="M54 18 L50 6 L56 20" fill="#FFB347" opacity="0.6"/>
+</svg>
