@@ -754,6 +754,100 @@ ul, ol {
 }
 
 /* ============================================================
+   FAQ — Photo Background
+   ============================================================ */
+
+.faq {
+  position: relative;
+  overflow: hidden;
+  color: var(--dark-text);
+}
+
+.faq::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/bathroom-fixture.jpg') center center / cover no-repeat;
+  z-index: 1;
+}
+
+.faq::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26,18,11,0.82);
+  z-index: 2;
+}
+
+.faq .container {
+  position: relative;
+  z-index: 3;
+}
+
+.faq .section-desc {
+  color: var(--dark-text-sec);
+}
+
+.faq-item {
+  background: rgba(26,18,11,0.5);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.faq-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--dark-text);
+  transition: color var(--dur-fast);
+}
+
+.faq-trigger:hover {
+  color: var(--gold);
+}
+
+.faq-trigger::after {
+  content: '+';
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--gold);
+  transition: transform var(--dur-base) var(--ease-out);
+  flex-shrink: 0;
+  margin-left: var(--space-4);
+}
+
+.faq-item.open .faq-trigger::after {
+  transform: rotate(45deg);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--dur-slow) var(--ease-out);
+}
+
+.faq-item.open .faq-content {
+  max-height: 300px;
+}
+
+.faq-content p {
+  padding: 0 var(--space-5) var(--space-4);
+  font-size: var(--text-base);
+  color: var(--dark-text-sec);
+  line-height: 1.6;
+}
+
+/* ============================================================
    REVIEWS
    ============================================================ */
 
@@ -827,81 +921,6 @@ ul, ol {
 
 .reviews-footer a:hover {
   color: var(--accent-hover);
-}
-
-/* ============================================================
-   FAQ
-   ============================================================ */
-
-.faq-list {
-  max-width: 800px;
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.faq-item {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.faq-trigger {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: var(--space-4) var(--space-5);
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  font-family: var(--font-body);
-  font-size: var(--text-md);
-  font-weight: 600;
-  color: var(--text-primary);
-  transition: color var(--dur-fast);
-}
-
-.faq-trigger:hover {
-  color: var(--accent);
-}
-
-.faq-trigger::after {
-  content: '+';
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  color: var(--accent);
-  transition: transform var(--dur-base) var(--ease-out);
-  flex-shrink: 0;
-  margin-left: var(--space-4);
-}
-
-.faq-item.open .faq-trigger::after {
-  transform: rotate(45deg);
-}
-
-.faq-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height var(--dur-slow) var(--ease-out);
-}
-
-.faq-item.open .faq-content {
-  max-height: 300px;
-}
-
-.section--alt .faq-item {
-  background: var(--bg-primary);
-}
-
-.faq-content p {
-  padding: 0 var(--space-5) var(--space-4);
-  font-size: var(--text-base);
-  color: var(--text-secondary);
-  line-height: 1.6;
 }
 
 /* ============================================================
