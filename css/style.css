@@ -687,15 +687,42 @@ ul, ol {
    ABOUT
    ============================================================ */
 
-.about-inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-8);
-  align-items: center;
+.about {
+  position: relative;
+  overflow: hidden;
+  color: var(--dark-text);
 }
 
-@media (min-width: 768px) {
-  .about-inner { grid-template-columns: 1fr 1fr; }
+.about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/plumbing-work.jpg') center center / cover no-repeat;
+  z-index: 1;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26,18,11,0.82);
+  z-index: 2;
+}
+
+.about .container {
+  position: relative;
+  z-index: 3;
+}
+
+.about-inner {
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.about .section-desc {
+  color: var(--dark-text-sec);
+  margin-inline: auto;
 }
 
 .about-list {
@@ -703,30 +730,12 @@ ul, ol {
   flex-direction: column;
   gap: var(--space-5);
   margin-top: var(--space-6);
+  text-align: left;
 }
 
 .about-list li {
-  display: flex;
-  gap: var(--space-4);
-  align-items: flex-start;
-}
-
-.about-check {
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent);
-  color: var(--warm-50);
-  border-radius: var(--radius-full);
-  margin-top: 2px;
-}
-
-.about-check svg {
-  width: 16px;
-  height: 16px;
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--gold);
 }
 
 .about-list strong {
@@ -734,50 +743,14 @@ ul, ol {
   font-family: var(--font-display);
   font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--dark-text);
   margin-bottom: var(--space-1);
 }
 
 .about-list span {
   font-size: var(--text-sm);
-  color: var(--text-secondary);
+  color: var(--dark-text-sec);
   line-height: 1.5;
-}
-
-.about-visual {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-photo {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 16px 48px rgba(26,18,11,0.15);
-}
-
-.about-accent {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  border-radius: var(--radius-full);
-  opacity: 0.15;
-}
-
-.about-accent--1 {
-  background: var(--brand-copper);
-  top: -20px;
-  right: 10%;
-}
-
-.about-accent--2 {
-  background: var(--brand-yellow);
-  bottom: -20px;
-  left: 10%;
 }
 
 /* ============================================================
