@@ -1,15 +1,17 @@
 /**
  * Design Tokens: Little Chief Plumbing
  * Philosophy: Rugged & Trustworthy — Warm Industrial Craftsmanship
- * Derived from the actual business card colors:
- *   Dark brown: #2C170C
- *   Copper:     #98371A
- *   Warm yellow:#FDBC50
- *   Cream:      #FFCA66
+ * Earth Color Palette:
+ *   Dark:       #1A120B (deep warm brown-black)
+ *   Copper:     #C45C2A (primary accent)
+ *   Gold:       #F5A623 (secondary accent)
+ *   Light:      #FAF8F5 (warm white)
+ *   Green:      #4A6741 (trust / success)
+ *   Taupe:      #8B7355 (neutral warm)
  *
  * The site uses a hybrid dark/light approach:
- *   - Dark sections (hero, footer, accent areas) use the dark brown palette
- *   - Light sections (services, about, reviews, FAQ, contact) use the cream palette
+ *   - Dark sections (hero, footer, accent areas) use the dark palette
+ *   - Light sections (services, about, reviews, FAQ, contact) use the warm light palette
  *   - Dark mode is available via prefers-color-scheme for users who want it
  */
 
@@ -19,43 +21,56 @@
 
 :root {
   /* --- Core Brand Colors --- */
-  --brand-dark:       #2C170C;
-  --brand-dark-900:   #1A0F08;
-  --brand-dark-800:   #2C170C;
-  --brand-dark-700:   #3D2416;
-  --brand-dark-600:   #4E3120;
-  --brand-dark-500:   #5F3E2A;
+  --brand-dark:       #1A120B;
+  --brand-dark-900:   #1A120B;
+  --brand-dark-800:   #2C1E14;
+  --brand-dark-700:   #3D2A1E;
+  --brand-dark-600:   #4E3628;
+  --brand-dark-500:   #5F4230;
 
-  --brand-copper:     #98371A;
-  --brand-copper-700: #7A2B12;
-  --brand-copper-600: #98371A;
-  --brand-copper-500: #B84A28;
-  --brand-copper-400: #D45E3A;
-  --brand-copper-300: #E87A5C;
+  --brand-copper:     #C45C2A;
+  --brand-copper-700: #9A4A22;
+  --brand-copper-600: #C45C2A;
+  --brand-copper-500: #D46832;
+  --brand-copper-400: #E07840;
+  --brand-copper-300: #E89260;
 
-  --brand-yellow:     #FDBC50;
-  --brand-yellow-600: #E5A030;
-  --brand-yellow-500: #FDBC50;
-  --brand-yellow-400: #FFD07A;
-  --brand-yellow-300: #FFE08A;
+  --brand-yellow:     #F5A623;
+  --brand-yellow-600: #D48A1A;
+  --brand-yellow-500: #F5A623;
+  --brand-yellow-400: #F7B84A;
+  --brand-yellow-300: #F9CC70;
 
-  --brand-cream:      #FFCA66;
-  --brand-cream-600:  #E5B44D;
-  --brand-cream-500:  #FFCA66;
-  --brand-cream-400:  #FFE08A;
-  --brand-cream-300:  #FFF0C2;
+  --brand-cream:      #FAF8F5;
+  --brand-cream-600:  #E5DDD3;
+  --brand-cream-500:  #FAF8F5;
+  --brand-cream-400:  #FFFDFA;
+  --brand-cream-300:  #FFFFFF;
+
+  /* --- Supporting Accents --- */
+  --brand-green:      #4A6741;
+  --brand-green-700:  #3A5232;
+  --brand-green-600:  #4A6741;
+  --brand-green-500:  #5A7D50;
+  --brand-green-400:  #6A9360;
+
+  --brand-taupe:      #8B7355;
+  --brand-taupe-700:  #6E5B43;
+  --brand-taupe-600:  #8B7355;
+  --brand-taupe-500:  #9E8565;
+  --brand-taupe-400:  #B19A7A;
 
   /* --- Neutral Scale (Warm) --- */
-  --warm-50:  #FAF3E8;
-  --warm-100: #F5EBD8;
-  --warm-200: #E8D9C4;
-  --warm-300: #D4C2A8;
-  --warm-400: #B8A48A;
-  --warm-500: #9A8770;
-  --warm-600: #7D6B58;
-  --warm-700: #5F5040;
-  --warm-800: #42362A;
-  --warm-900: #2C170C;
+  --warm-50:  #FAF8F5;
+  --warm-100: #F0EBE3;
+  --warm-200: #E5DDD3;
+  --warm-300: #D4C8B8;
+  --warm-400: #B8AFA0;
+  --warm-500: #9A9182;
+  --warm-600: #7D6E5F;
+  --warm-700: #6B5E4F;
+  --warm-800: #4A3F34;
+  --warm-900: #1A120B;
 
   /* --- Semantic Colors: Light Sections --- */
   --color-bg-primary:        var(--warm-50);
@@ -65,7 +80,7 @@
 
   --color-text-primary:      var(--brand-dark-800);
   --color-text-secondary:    var(--warm-700);
-  --color-text-tertiary:     var(--warm-500);
+  --color-text-tertiary:     var(--brand-taupe-600);
   --color-text-inverse:      var(--brand-cream-500);
   --color-text-link:         var(--brand-copper-600);
 
@@ -77,13 +92,14 @@
   --color-accent-primary-hover:  var(--brand-copper-500);
   --color-accent-primary-active: var(--brand-copper-700);
   --color-accent-secondary:      var(--brand-yellow-500);
+  --color-accent-trust:          var(--brand-green-600);
 
-  --color-status-success: #5B826C;
-  --color-status-warning: #C47354;
+  --color-status-success: var(--brand-green-600);
+  --color-status-warning: var(--brand-copper-500);
   --color-status-error:   #A03030;
   --color-status-info:    #6B7D8A;
 
-  --color-surface-overlay: rgba(26, 15, 8, 0.6);
+  --color-surface-overlay: rgba(26, 18, 11, 0.6);
 
   /* --- Semantic Colors: Dark Sections ---
      Use these when section background is --color-bg-inverse */
@@ -92,7 +108,7 @@
   --color-dark-text-tertiary:  var(--warm-500);
   --color-dark-accent:         var(--brand-copper-500);
   --color-dark-accent-hover:   var(--brand-copper-400);
-  --color-dark-border:         rgba(253, 188, 80, 0.15);
+  --color-dark-border:         rgba(245, 166, 35, 0.15);
 
   /* --- Typography --- */
   --font-display: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
@@ -152,11 +168,11 @@
   --border-radius-full: 9999px;
 
   /* --- Shadows (warm, grounded) --- */
-  --shadow-sm:  0 1px 2px rgba(26, 15, 8, 0.06);
-  --shadow-md:  0 4px 12px rgba(26, 15, 8, 0.08);
-  --shadow-lg:  0 8px 30px rgba(26, 15, 8, 0.12);
-  --shadow-xl:  0 16px 48px rgba(26, 15, 8, 0.16);
-  --shadow-focus: 0 0 0 3px rgba(152, 55, 26, 0.3);
+  --shadow-sm:  0 1px 2px rgba(26, 18, 11, 0.06);
+  --shadow-md:  0 4px 12px rgba(26, 18, 11, 0.08);
+  --shadow-lg:  0 8px 30px rgba(26, 18, 11, 0.12);
+  --shadow-xl:  0 16px 48px rgba(26, 18, 11, 0.16);
+  --shadow-focus: 0 0 0 3px rgba(196, 92, 42, 0.3);
 
   /* --- Motion (substantial, not flashy) --- */
   --duration-instant: 50ms;
@@ -204,6 +220,7 @@
   --color-accent-primary-hover:  var(--brand-copper-400);
   --color-accent-primary-active: var(--brand-copper-600);
   --color-accent-secondary:      var(--brand-yellow-500);
+  --color-accent-trust:          var(--brand-green-500);
 
   --color-dark-text-primary:   var(--brand-dark-800);
   --color-dark-text-secondary: var(--warm-700);
@@ -212,7 +229,7 @@
   --color-dark-accent-hover:   var(--brand-copper-500);
   --color-dark-border:         var(--warm-300);
 
-  --color-surface-overlay: rgba(26, 15, 8, 0.8);
+  --color-surface-overlay: rgba(26, 18, 11, 0.8);
 
   --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.3);
@@ -241,6 +258,7 @@
     --color-accent-primary-hover:  var(--brand-copper-400);
     --color-accent-primary-active: var(--brand-copper-600);
     --color-accent-secondary:      var(--brand-yellow-500);
+    --color-accent-trust:          var(--brand-green-500);
 
     --color-dark-text-primary:   var(--brand-dark-800);
     --color-dark-text-secondary: var(--warm-700);
@@ -249,7 +267,7 @@
     --color-dark-accent-hover:   var(--brand-copper-500);
     --color-dark-border:         var(--warm-300);
 
-    --color-surface-overlay: rgba(26, 15, 8, 0.8);
+    --color-surface-overlay: rgba(26, 18, 11, 0.8);
 
     --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.2);
     --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.3);

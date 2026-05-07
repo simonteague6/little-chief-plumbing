@@ -1,7 +1,7 @@
 /**
  * Little Chief Plumbing — Redesign
  * Aesthetic: Rugged & Trustworthy
- * Colors from business card: dark brown, copper, warm yellow, cream
+ * Earth Color Palette: deep warm brown-black, copper, gold, warm white, green, taupe
  * Fonts: Playfair Display (display) + Lora (body)
  */
 
@@ -11,36 +11,37 @@
 
 :root {
   /* Brand */
-  --brand-dark:       #2C170C;
-  --brand-dark-900:   #1A0F08;
-  --brand-dark-800:   #2C170C;
-  --brand-dark-700:   #3D2416;
-  --brand-dark-600:   #4E3120;
+  --brand-dark:       #1A120B;
+  --brand-dark-900:   #1A120B;
+  --brand-dark-800:   #2C1E14;
+  --brand-dark-700:   #3D2A1E;
+  --brand-dark-600:   #4E3628;
 
-  --brand-copper:     #98371A;
-  --brand-copper-700: #7A2B12;
-  --brand-copper-600: #98371A;
-  --brand-copper-500: #B84A28;
-  --brand-copper-400: #D45E3A;
+  --brand-copper:     #C45C2A;
+  --brand-copper-700: #9A4A22;
+  --brand-copper-600: #C45C2A;
+  --brand-copper-500: #D46832;
+  --brand-copper-400: #E07840;
 
-  --brand-yellow:     #FDBC50;
-  --brand-yellow-600: #E5A030;
-  --brand-yellow-500: #FDBC50;
-  --brand-yellow-400: #FFD07A;
+  --brand-yellow:     #F5A623;
+  --brand-yellow-600: #D48A1A;
+  --brand-yellow-500: #F5A623;
+  --brand-yellow-400: #F7B84A;
 
-  --brand-cream:      #FFCA66;
+  --brand-cream:      #FAF8F5;
 
   /* Neutrals */
-  --warm-50:  #FAF3E8;
-  --warm-100: #F5EBD8;
-  --warm-200: #E8D9C4;
-  --warm-300: #D4C2A8;
-  --warm-400: #B8A48A;
-  --warm-500: #9A8770;
-  --warm-600: #7D6B58;
-  --warm-700: #5F5040;
-  --warm-800: #42362A;
-  --warm-900: #2C170C;
+  --brand-taupe:      #8B7355;
+  --warm-50:  #FAF8F5;
+  --warm-100: #F0EBE3;
+  --warm-200: #E5DDD3;
+  --warm-300: #D4C8B8;
+  --warm-400: #B8AFA0;
+  --warm-500: #9A9182;
+  --warm-600: #7D6E5F;
+  --warm-700: #6B5E4F;
+  --warm-800: #4A3F34;
+  --warm-900: #1A120B;
 
   /* Semantic — Light sections */
   --bg-primary:    var(--warm-50);
@@ -48,18 +49,20 @@
   --bg-inverse:    var(--brand-dark-800);
   --text-primary:  var(--brand-dark-800);
   --text-secondary:var(--warm-700);
-  --text-muted:    var(--warm-500);
+  --text-muted:    var(--brand-taupe);
   --text-inverse:  var(--brand-cream);
   --accent:        var(--brand-copper-600);
   --accent-hover:  var(--brand-copper-500);
   --accent-active: var(--brand-copper-700);
   --border:        var(--warm-300);
+  --gold:          var(--brand-yellow-500);
+  --taupe:         var(--brand-taupe);
 
   /* Dark section overrides */
   --dark-text:      var(--warm-50);
   --dark-text-sec:  var(--warm-300);
   --dark-accent:    var(--brand-copper-400);
-  --dark-border:    rgba(253,188,80,0.15);
+  --dark-border:    rgba(245,166,35,0.15);
 
   /* Typography */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -180,6 +183,10 @@ ul, ol {
   color: var(--dark-text);
 }
 
+.section--alt {
+  background: var(--bg-secondary);
+}
+
 .section-header {
   text-align: center;
   margin-bottom: var(--space-8);
@@ -250,7 +257,7 @@ ul, ol {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(152,55,26,0.3);
+  box-shadow: 0 4px 16px rgba(196,92,42,0.3);
 }
 
 .btn-copper:active {
@@ -265,7 +272,7 @@ ul, ol {
 }
 
 .btn-ghost:hover {
-  background: rgba(152,55,26,0.08);
+  background: rgba(196,92,42,0.08);
   border-color: var(--accent);
   color: var(--accent);
 }
@@ -312,7 +319,7 @@ ul, ol {
 }
 
 .header.scrolled {
-  background: rgba(26,15,8,0.92);
+  background: rgba(26,18,11,0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 20px rgba(0,0,0,0.2);
@@ -453,7 +460,7 @@ ul, ol {
   gap: var(--space-7);
   position: fixed;
   inset: 0;
-  background: rgba(26,15,8,0.97);
+  background: rgba(26,18,11,0.97);
   backdrop-filter: blur(8px);
   z-index: 99;
 }
@@ -493,16 +500,16 @@ ul, ol {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(26,15,8,0.85) 0%,
-    rgba(26,15,8,0.75) 40%,
-    rgba(26,15,8,0.85) 100%
+    rgba(26,18,11,0.85) 0%,
+    rgba(26,18,11,0.75) 40%,
+    rgba(26,18,11,0.85) 100%
   );
   z-index: 2;
 }
 
 .hero-inner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 800px;
   padding-inline: var(--space-5);
 }
@@ -639,7 +646,7 @@ ul, ol {
 
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(26,15,8,0.1);
+  box-shadow: 0 12px 32px rgba(26,18,11,0.1);
   border-color: var(--accent);
 }
 
@@ -750,7 +757,7 @@ ul, ol {
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: var(--radius-lg);
-  box-shadow: 0 16px 48px rgba(26,15,8,0.15);
+  box-shadow: 0 16px 48px rgba(26,18,11,0.15);
 }
 
 .about-accent {
@@ -913,6 +920,10 @@ ul, ol {
   max-height: 300px;
 }
 
+.section--alt .faq-item {
+  background: var(--bg-primary);
+}
+
 .faq-content p {
   padding: 0 var(--space-5) var(--space-4);
   font-size: var(--text-base);
@@ -980,7 +991,7 @@ ul, ol {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(152,55,26,0.15);
+  box-shadow: 0 0 0 3px rgba(196,92,42,0.15);
 }
 
 .form-group textarea {
