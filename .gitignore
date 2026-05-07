@@ -1,0 +1,16 @@
+# Secrets — never commit credentials, keys, or passwords
+password
+*.pem
+.env
+.env.*
+credentials
+credentials.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
