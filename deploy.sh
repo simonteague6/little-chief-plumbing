@@ -12,7 +12,7 @@ set -euo pipefail
 #   ./deploy.sh
 #
 # Requirements:
-#   - aws-biz alias available (maps to: aws --profile stsites)
+#   - AWS CLI with 'stsites' profile configured (aws configure --profile stsites)
 #   - site/ directory exists
 # =============================================================================
 
@@ -31,7 +31,8 @@ fi
 
 # --- 1. Assets with long-term cache (CSS, JS, images, fonts, SVG, ICO) ---
 echo "[1/3] Uploading assets (1-year cache)..."
-aws-biz s3 sync site/ "s3://${BUCKET}/" \
+aws s3 sync site/ "s3://${BUCKET}/" \
+  --profile stsites \
   --delete \
   --cache-control "max-age=31536000,immutable" \
   --exclude "*" \
@@ -51,7 +52,8 @@ aws-biz s3 sync site/ "s3://${BUCKET}/" \
 
 # --- 2. HTML & text files with short cache (5 min at CloudFront edge) ---
 echo "[2/3] Uploading HTML/text (no browser cache, 5-min edge cache)..."
-aws-biz s3 sync site/ "s3://${BUCKET}/" \
+aws s3 sync site/ "s3://${BUCKET}/" \
+  --profile stsites \
   --delete \
   --cache-control "max-age=0,s-maxage=300" \
   --exclude "*" \
@@ -61,7 +63,8 @@ aws-biz s3 sync site/ "s3://${BUCKET}/" \
 
 # --- 3. CloudFront invalidation ---
 echo "[3/3] Invalidating CloudFront cache..."
-aws-biz cloudfront create-invalidation \
+aws cloudfront create-invalidation \
+  --profile stsites \
   --distribution-id "$DISTRIBUTION_ID" \
   --paths "/*" >/dev/null
 
