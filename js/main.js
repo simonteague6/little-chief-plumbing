@@ -5,6 +5,7 @@
  * - Sticky header with background/blur on scroll
  * - Mobile navigation toggle
  * - Active nav link highlighting
+ * - FAQ accordion
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -124,4 +125,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealObserver.observe(el));
   }
+
+  // =========================================================
+  // FAQ Accordion
+  // =========================================================
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('.faq-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Close all others (optional — remove this block to allow multiple open)
+      faqItems.forEach(other => {
+        if (other !== item && other.classList.contains('open')) {
+          other.classList.remove('open');
+          other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current
+      item.classList.toggle('open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    // Keyboard support
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        trigger.click();
+      }
+    });
+  });
+
 });
