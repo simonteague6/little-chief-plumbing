@@ -64,6 +64,11 @@
   --dark-accent:    var(--brand-copper-400);
   --dark-border:    rgba(245,166,35,0.15);
 
+  /* Overlays */
+  --overlay-dark:   rgba(26,18,11,0.82);
+  --overlay-header: rgba(26,18,11,0.92);
+  --overlay-mobile: rgba(26,18,11,0.97);
+
   /* Typography */
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body:    'Lora', Georgia, 'Times New Roman', serif;
@@ -319,7 +324,7 @@ ul, ol {
 }
 
 .header.scrolled {
-  background: rgba(26,18,11,0.92);
+  background: var(--overlay-header);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 20px rgba(0,0,0,0.2);
@@ -460,7 +465,7 @@ ul, ol {
   gap: var(--space-7);
   position: fixed;
   inset: 0;
-  background: rgba(26,18,11,0.97);
+  background: var(--overlay-mobile);
   backdrop-filter: blur(8px);
   z-index: 99;
 }
@@ -490,8 +495,14 @@ ul, ol {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../assets/san-antonio-skyline.jpg') center center / cover no-repeat;
+  background: url('../assets/san-antonio-skyline-400.webp') center center / cover no-repeat;
   z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .hero::before {
+    background-image: url('../assets/san-antonio-skyline.webp');
+  }
 }
 
 .hero::after {
@@ -500,9 +511,9 @@ ul, ol {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(26,18,11,0.85) 0%,
+    var(--overlay-dark) 0%,
     rgba(26,18,11,0.75) 40%,
-    rgba(26,18,11,0.85) 100%
+    var(--overlay-dark) 100%
   );
   z-index: 2;
 }
@@ -697,15 +708,21 @@ ul, ol {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../assets/plumbing-work.jpg') center center / cover no-repeat;
+  background: url('../assets/plumbing-work-400.webp') center center / cover no-repeat;
   z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .about::before {
+    background-image: url('../assets/plumbing-work.webp');
+  }
 }
 
 .about::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(26,18,11,0.82);
+  background: var(--overlay-dark);
   z-index: 2;
 }
 
@@ -767,15 +784,21 @@ ul, ol {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../assets/bathroom-fixture.jpg') center center / cover no-repeat;
+  background: url('../assets/bathroom-fixture-400.webp') center center / cover no-repeat;
   z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .faq::before {
+    background-image: url('../assets/bathroom-fixture.webp');
+  }
 }
 
 .faq::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(26,18,11,0.82);
+  background: var(--overlay-dark);
   z-index: 2;
 }
 
